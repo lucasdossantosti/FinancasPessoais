@@ -1,6 +1,8 @@
 package app.financaspessoais.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Usuario {
     private Integer id;
@@ -10,6 +12,9 @@ public class Usuario {
     private String email;
     private String senha;
     private Date dataCadastro;
+    private Date dataUltimoAcesso;
+    private List<MovimentacaoFinanceira> movimentacoes;
+    private float saldo;
 
     public Usuario(String nome, String sobrenome, Date dataNascimento, String email, String senha) {
         this.nome = nome;
@@ -18,6 +23,9 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.dataCadastro = new Date();
+        this.dataUltimoAcesso = new Date();
+        this.movimentacoes = new ArrayList<>();
+        this.saldo = 0;
     }
 
     public Integer getId() {
@@ -68,7 +76,16 @@ public class Usuario {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public Date getDataUltimoAcesso() {
+        return dataUltimoAcesso;
     }
+
+    public List<MovimentacaoFinanceira> getMovimentacoes(){
+        return movimentacoes;
+    }
+
+    public float getSaldo(){
+        return saldo;
+    }
+    public void setSaldo(float saldo) {this.saldo = saldo;}
 }
