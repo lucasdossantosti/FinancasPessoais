@@ -5,6 +5,10 @@ plugins {
 android {
     compileSdk 32
 
+    viewBinding{
+        enable = true;
+    }
+
     defaultConfig {
         applicationId "app.financaspessoais"
         minSdk 21
